@@ -1,0 +1,19 @@
+<p data-sly-test="${wcmmode.edit}">Please configure Asset Gallery Detail component</p>
+
+<sly data-sly-use.galleryDetail="com.media.publication.core.models.AssetGalleryDetailPage">
+
+    <div id="cmp-asset-gallery-detail">
+        <h1 class="cmp-asset-gallery__title">${galleryDetail.title}</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="${galleryDetail.data.assetDownloadLink}" alt="assest link" />
+                </div>
+                <div class="col-sm-6">
+                    <span>${galleryDetail.data.assestType}</span>
+                    <span>${galleryDetail.data.assetOwnerName}</span>
+                    <span>${galleryDetail.data.assetOwnerEmail}</span>
+                </div>
+            </div>
+        </div>
+    </div>
