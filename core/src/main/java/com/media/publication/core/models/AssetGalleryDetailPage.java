@@ -17,6 +17,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.day.cq.dam.api.Asset;
 import com.media.pubication.core.services.SearchService;
 import com.media.publication.core.pojo.AssetGalleryDetailPageData;
+import com.media.publication.core.utility.IAMUtil;
 import com.media.publication.core.utility.Utility;
 
 @Model(adaptables = SlingHttpServletRequest.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -54,7 +55,8 @@ public class AssetGalleryDetailPage {
 			if (null != resource) {
 				final Asset asset = resource.adaptTo(Asset.class);
 				if (null != asset) {
-					data.setAssestType(getAssetType(asset));
+					data.setAssetType(getAssetType(asset));
+					data.setAssetImage(IAMUtil.getThumbNailPath(asset, "cq5dam.web.1280.1280.jpeg"));
 					data.setAssetDownloadLink(StringUtils.defaultIfBlank(asset.getPath(), NOT_SPECIFIED));
 					data.setAssetOwnerName(getValue(asset, "photoshop:AuthorsPosition"));
 					data.setAssetOwnerEmail(getValue(asset, "Iptc4xmpCore:CiEmailWork"));

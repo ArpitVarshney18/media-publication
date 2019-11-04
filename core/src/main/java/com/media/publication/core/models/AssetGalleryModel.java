@@ -24,6 +24,7 @@ import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
 import com.media.pubication.core.services.SearchService;
 import com.media.publication.core.pojo.AssetGalleryData;
+import com.media.publication.core.utility.IAMUtil;
 import com.media.publication.core.utility.Utility;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -45,7 +46,7 @@ public class AssetGalleryModel {
 
 	private List<AssetGalleryData> assetDataList;
 
-	private static final String DEFUALT_THUMBNAIL_PATH = "/content/dam/media-publication/not_available.jpeg/jcr:content/renditions/cq5dam.thumbnail.319.319.png";
+	
 	private static final String DETAIL_PAGE_PATH = "/content/media-publication/en/asset-gallery-detail.html";
 
 	@PostConstruct
@@ -65,7 +66,7 @@ public class AssetGalleryModel {
 					if (null != asset) {
 						AssetGalleryData data = new AssetGalleryData();
 						data.setFileName(StringUtils.substringBefore(asset.getName(), "."));
-						data.setThumnailPath(getThumbNailPath(asset));
+						data.setThumnailPath(IAMUtil.getThumbNailPath(asset,"cq5dam.thumbnail.319.319.png"));
 						data.setDetailPagePath(Utility.addParameter(DETAIL_PAGE_PATH, "assetName",asset.getName()));
 						assetDataList.add(data);
 					}
@@ -74,12 +75,7 @@ public class AssetGalleryModel {
 		}
 	}
 
-	private String getThumbNailPath(Asset asset) {
-		if (null != asset.getRendition("cq5dam.thumbnail.319.319.png")) {
-			return asset.getRendition("cq5dam.thumbnail.319.319.png").getPath();
-		}
-		return DEFUALT_THUMBNAIL_PATH;
-	}
+
 
 	private Map<String, String> getSearchPredicateMap() {
 		final Map<String, String> predicateMap = new LinkedHashMap<>();

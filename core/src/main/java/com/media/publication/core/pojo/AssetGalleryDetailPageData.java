@@ -5,7 +5,8 @@ public class AssetGalleryDetailPageData {
 	private String assetOwnerName;
 	private String assetOwnerEmail;
 	private String assetDownloadLink;
-	private String assestType;
+	private String assetType;
+	private String assetImage;
 
 	public String getAssetOwnerName() {
 		return assetOwnerName;
@@ -31,12 +32,22 @@ public class AssetGalleryDetailPageData {
 		this.assetDownloadLink = assetDownloadLink;
 	}
 
-	public String getAssestType() {
-		return assestType;
+	public String getAssetType() {
+		return assetType;
 	}
 
-	public void setAssestType(String assestType) {
-		this.assestType = assestType;
+	public void setAssetType(String assetType) {
+		this.assetType = assetType;
 	}
+
+	public String getAssetImage() {
+		return assetImage;
+	}
+
+	public void setAssetImage(String assetImage) {
+		this.assetImage = assetImage;
+	}
+
+
 
 }

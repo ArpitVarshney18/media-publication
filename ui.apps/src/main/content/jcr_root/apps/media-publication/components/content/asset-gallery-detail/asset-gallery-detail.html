@@ -7,12 +7,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="${galleryDetail.data.assetDownloadLink}" alt="assest link" />
+                    <img class="cmp-asset-gallery__image" src="${galleryDetail.data.assetImage}" alt="assest image" />
                 </div>
                 <div class="col-sm-6">
-                    <span>${galleryDetail.data.assestType}</span>
-                    <span>${galleryDetail.data.assetOwnerName}</span>
-                    <span>${galleryDetail.data.assetOwnerEmail}</span>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Asset Type</td>
+                                <td>${galleryDetail.data.assetType}</td>
+                            </tr>
+                            <tr>
+                                <td>Owner</td>
+                                <td>${galleryDetail.data.assetOwnerName}</td>
+                            </tr>
+                            <tr>
+                                <td>Owner's Email</td>
+                                <td>${galleryDetail.data.assetOwnerEmail}</td>
+                            </tr>
+                            <tr>
+                            	<td>Download Link</td>
+                                <td>
+                                    <a href=${galleryDetail.data.assetDownloadLink} download="download">
+                                        Download
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
