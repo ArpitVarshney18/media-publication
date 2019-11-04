@@ -13,4 +13,5 @@ public class IAMUtil {
 		}
 		return DEFAULT_THUMBNAIL_PATH;
 	}
+	
 }

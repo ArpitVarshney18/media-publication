@@ -23,13 +23,6 @@
                                 fieldDescription="Enter Title"
                                 fieldLabel="Title"
                                 name="./title"/>
-                           <assetPath
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldDescription="Media Publication Dam Path"
-                                fieldLabel="Path"
-                                name="./assetPath"
-                                rootPath="/content/dam"/>
                         </items>
                     </properties>
                 </items>

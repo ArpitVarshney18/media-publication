@@ -10,11 +10,15 @@ import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.day.cq.dam.api.Asset;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.policies.ContentPolicy;
+import com.day.cq.wcm.api.policies.ContentPolicyManager;
 import com.media.pubication.core.services.SearchService;
 import com.media.publication.core.pojo.AssetGalleryDetailPageData;
 import com.media.publication.core.utility.IAMUtil;
@@ -37,10 +41,9 @@ public class AssetGalleryDetailPage {
 
 	@Self
 	private SlingHttpServletRequest request;
-
-	@ValueMapValue
-	@Default(values = "/content/dam/we-retail/en/activities/hiking")
-	private String assetPath;
+	
+	@ScriptVariable
+	private Page currentPage;
 
 	private AssetGalleryDetailPageData data;
 	private String assetName;
@@ -48,6 +51,7 @@ public class AssetGalleryDetailPage {
 	@PostConstruct
 	protected void init() {
 		data = new AssetGalleryDetailPageData();
+		final String assetPath = populateAssetPath();
 		assetName = request.getParameter("assetName");
 		String resourcePath = Utility.appendURL(assetPath, assetName);
 		if (null != resourcePath) {
@@ -63,6 +67,17 @@ public class AssetGalleryDetailPage {
 				}
 			}
 		}
+	}
+	
+	private String populateAssetPath() {
+		ContentPolicyManager policyManager = resourceResolver.adaptTo(ContentPolicyManager.class);
+		if (policyManager != null) {
+			ContentPolicy contentPolicy = policyManager.getPolicy(currentPage.getContentResource());
+			if (contentPolicy != null) {
+				return (String) contentPolicy.getProperties().get("assetGalleryDamPath");
+			}
+		}
+		return null;
 	}
 
 	private String getValue(Asset asset, String property) {
@@ -94,10 +109,6 @@ public class AssetGalleryDetailPage {
 
 	public String getAssetName() {
 		return assetName;
-	}
-
-	public String getAssetPath() {
-		return assetPath;
 	}
 
 	public AssetGalleryDetailPageData getData() {
