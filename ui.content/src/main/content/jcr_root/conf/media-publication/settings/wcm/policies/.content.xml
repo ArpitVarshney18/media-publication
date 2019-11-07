@@ -46,6 +46,24 @@
                     </form-container>
                 </container>
             </form>
+            <structure jcr:primaryType="nt:unstructured">
+                <page jcr:primaryType="nt:unstructured">
+                    <policy_1572858295051
+                        jcr:lastModified="{Date}2019-11-07T12:38:19.159+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Media Publication Asset Gallery Template Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        assetGalleryDamPath="/content/dam/media-publication">
+                        <jcr:content
+                            cq:lastReplicated="{Date}2019-11-07T13:44:06.519+05:30"
+                            cq:lastReplicatedBy="admin"
+                            cq:lastReplicationAction="Activate"
+                            jcr:mixinTypes="[cq:ReplicationStatus]"
+                            jcr:primaryType="nt:unstructured"/>
+                    </policy_1572858295051>
+                </page>
+            </structure>
         </components>
     </media-publication>
 </jcr:root>
