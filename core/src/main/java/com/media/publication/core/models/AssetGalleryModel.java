@@ -50,7 +50,7 @@ public class AssetGalleryModel {
 
 	private List<AssetGalleryData> assetDataList;
 
-	private static final String DETAIL_PAGE_PATH = "/content/media-publication/en/asset-gallery-detail.html?wcmmode=disabled";
+	private static final String DETAIL_PAGE_PATH = "/content/media-publication/en/asset-gallery-detail.html";
 
 	@PostConstruct
 	protected void init() throws RepositoryException {
