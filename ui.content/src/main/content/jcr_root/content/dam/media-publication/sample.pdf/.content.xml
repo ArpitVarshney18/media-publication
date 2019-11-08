@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="86c8d6dc-1d71-4f4d-ae67-c98dd8c32a0a">
+    <jcr:content
+        dam:assetState="processed"
+        dam:relativePath="we-retail/en/activities/biking/sample.pdf"
+        jcr:lastModified="{Date}2019-11-02T23:03:17.709+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:extracted="{Date}2019-11-02T23:03:12.183+05:30"
+            dam:numPages="{Long}2"
+            dam:Physicalheightininches="{Decimal}11.0"
+            dam:Physicalwidthininches="{Decimal}8.5"
+            dam:Producer="Nevrona Designs"
+            dam:sha1="bfd009f500c057195ffde66fae64f92fa5f59b72"
+            dam:size="{Long}3028"
+            dc:format="application/pdf"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            pdf:Producer="Nevrona Designs"
+            xmp:CreateDate="{Date}2006-03-01T12:58:26.000+05:30"
+            xmp:CreatorTool="Rave (http://www.nevrona.com/rave)"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
